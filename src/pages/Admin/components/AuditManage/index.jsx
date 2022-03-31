@@ -5,7 +5,7 @@
  */
 import React from 'react'
 
-export default function AuditManage() {
+export default function AuditManage () {
   return (
     <div>AuditManage</div>
   )

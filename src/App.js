@@ -1,11 +1,9 @@
-// import React from 'react';
-import IndexRouter from './router/IndexRouter.js';
-import './App.css';
+import React from 'react'
+import IndexRouter from './router/IndexRouter.js'
+import './App.css'
 
 function App() {
-  return (
-    <IndexRouter ></IndexRouter>
-  );
+  return <IndexRouter />
 }
 
-export default App;
+export default App

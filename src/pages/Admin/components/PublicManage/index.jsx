@@ -5,7 +5,7 @@
  */
 import React from 'react'
 
-export default function PublicManage() {
+export default function PublicManage () {
   return (
     <div>PublicManage</div>
   )

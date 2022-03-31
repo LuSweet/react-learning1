@@ -5,7 +5,7 @@
  */
 import React from 'react'
 
-export default function NewManage() {
+export default function NewManage () {
   return (
     <div>NewManage</div>
   )
