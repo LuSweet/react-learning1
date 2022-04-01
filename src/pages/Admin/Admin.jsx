@@ -9,14 +9,25 @@ import { Outlet } from 'react-router-dom'
 import SideMenu from '../../components/SideMenu'
 import TopHeader from '../../components/TopHeader'
 import './Admin.css'
+import BottomFooter from '../../components/BottomFooter'
+import { Content } from 'antd/lib/layout/layout'
 
-const { Content } = Layout
+// const { Content } = Layout
 
 export default function Admin() {
   const [collapsed, setCollapsed] = useState(false)
 
   return (
-    <Layout>
+    <Layout
+      hasSider
+      // style={{
+      //   height: '100vh',
+      //   width: '100%',
+      //   overflow: 'auto',
+      //   position: 'fixed',
+      //   bottom: 0
+      // }}
+    >
       <SideMenu collapsed={collapsed} />
       <Layout className='site-layout'>
         <TopHeader collapsed={collapsed} setCollapsed={setCollapsed} />
@@ -29,6 +40,7 @@ export default function Admin() {
         >
           <Outlet></Outlet>
         </Content>
+        <BottomFooter />
       </Layout>
     </Layout>
   )

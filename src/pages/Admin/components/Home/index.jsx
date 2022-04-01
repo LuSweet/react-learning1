@@ -4,25 +4,31 @@
  * @Description: file content
  */
 import React from 'react'
-import { Button, Col, Row } from 'antd'
 import axios from 'axios'
+import { Button, Col, Row } from 'antd'
+import Bar from './bar'
+import Line from './line'
+import Pie from './pie'
+import Scatter from './scatter'
+import PictorialBar from './pictorialBar'
+import './index.css'
 
-export default function Home () {
+export default function Home() {
   const ajax = () => {
-    axios.get('http://localhost:3000/posts').then((res) => {
+    axios.get('http://localhost:3000/posts').then(res => {
       console.log('res', res.data)
     })
   }
 
   return (
-    <>
+    <div>
       <div>Home</div>
-      <Button type="primary" onClick={ajax}>
+      <Button type='primary' onClick={ajax}>
         取数据
       </Button>
-      <Row gutter={24} className="index-header">
+      <Row gutter={24} className='indexheader'>
         <Col span={6}>
-          <div className="base-style wechat">
+          <div className='wechat'>
             {/* <Icon type="wechat" className="icon-style" /> */}
             <div>
               <span>999</span>
@@ -31,7 +37,7 @@ export default function Home () {
           </div>
         </Col>
         <Col span={6}>
-          <div className="base-style qq">
+          <div className='qq'>
             {/* <Icon type="qq" className="icon-style" /> */}
             <div>
               <span>366</span>
@@ -40,7 +46,7 @@ export default function Home () {
           </div>
         </Col>
         <Col span={6}>
-          <div className="base-style dingding">
+          <div className='dingding'>
             {/* <Icon type="dingding" className="icon-style" /> */}
             <div>
               <span>666</span>
@@ -49,7 +55,7 @@ export default function Home () {
           </div>
         </Col>
         <Col span={6}>
-          <div className="base-style weibo">
+          <div className='weibo'>
             {/* <Icon type="weibo" className="icon-style" /> */}
             <div>
               <span>689</span>
@@ -58,6 +64,29 @@ export default function Home () {
           </div>
         </Col>
       </Row>
-    </>
+      <Bar />
+      <Row gutter={8}>
+        <Col span={12}>
+          <div className='base-style'>
+            <Line />
+          </div>
+        </Col>
+        <Col span={12}>
+          <div className='base-style'>
+            <Pie />
+          </div>
+        </Col>
+        <Col span={12}>
+          <div className='base-style'>
+            <Scatter />
+          </div>
+        </Col>
+        <Col span={12}>
+          <div className='base-style'>
+            <PictorialBar />
+          </div>
+        </Col>
+      </Row>
+    </div>
   )
 }

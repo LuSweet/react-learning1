@@ -39,6 +39,14 @@
   }
 }
 
-#root {
-  height: 100%;
+@media screen and (max-width: 960px) {
+  /* font-size: 1; */
+}
+
+.base-style {
+  background-color: #fff;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 13px 0 rgba(228, 228, 228, 0.6);
 }

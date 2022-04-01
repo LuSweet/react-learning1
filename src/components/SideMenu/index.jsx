@@ -20,6 +20,8 @@ import {
   UploadOutlined
 } from '@ant-design/icons'
 import axios from 'axios'
+import './index.css'
+
 const { Sider } = Layout
 const { SubMenu } = Menu
 
@@ -77,7 +79,7 @@ export default function SideMenu({ collapsed }) {
   }
 
   return (
-    <Sider trigger={null} collapsible collapsed={collapsed}>
+    <Sider className='sider' trigger={null} collapsible collapsed={collapsed}>
       <div className='mylogo'>React学习系统</div>
       <Menu theme='dark' mode='inline' defaultSelectedKeys={['/home']}>
         {renderMenu(menu)}
