@@ -1,0 +1,33 @@
+.backgroundBox {
+  background: rgb(0, 0, 0, 0.9);
+  height: 100%;
+  width: '100%';
+  overflow: 'hidden';
+}
+
+.container {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 25%;
+  height: 32%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 10px snow 5px;
+  border-radius: 5px;
+}
+
+.loginTitle {
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  font-size: 30px;
+  color: aliceblue;
+  margin-bottom: 10px;
+}
+
+.login-form-button {
+  /* width: 100%; */
+  align-items: center;
+}

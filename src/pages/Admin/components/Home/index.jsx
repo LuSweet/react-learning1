@@ -5,7 +5,7 @@
  */
 import React from 'react'
 import axios from 'axios'
-import { Button, Col, Row } from 'antd'
+import { Button, Row, Col } from 'antd'
 import Bar from './bar'
 import Line from './line'
 import Pie from './pie'
@@ -23,13 +23,13 @@ export default function Home() {
   return (
     <div>
       <div>Home</div>
+      {/* <div className={styles.myhello}>我可没和你看看会不会九年</div> */}
       <Button type='primary' onClick={ajax}>
         取数据
       </Button>
-      <Row gutter={24} className='indexheader'>
+      {/* <Row gutter={24} className='indexheader'>
         <Col span={6}>
           <div className='wechat'>
-            {/* <Icon type="wechat" className="icon-style" /> */}
             <div>
               <span>999</span>
               <div>微信</div>
@@ -38,7 +38,6 @@ export default function Home() {
         </Col>
         <Col span={6}>
           <div className='qq'>
-            {/* <Icon type="qq" className="icon-style" /> */}
             <div>
               <span>366</span>
               <div>QQ</div>
@@ -47,7 +46,6 @@ export default function Home() {
         </Col>
         <Col span={6}>
           <div className='dingding'>
-            {/* <Icon type="dingding" className="icon-style" /> */}
             <div>
               <span>666</span>
               <div>钉钉</div>
@@ -56,33 +54,32 @@ export default function Home() {
         </Col>
         <Col span={6}>
           <div className='weibo'>
-            {/* <Icon type="weibo" className="icon-style" /> */}
             <div>
               <span>689</span>
               <div>微博</div>
             </div>
           </div>
         </Col>
-      </Row>
+      </Row> */}
       <Bar />
       <Row gutter={8}>
         <Col span={12}>
-          <div className='base-style'>
+          <div>
             <Line />
           </div>
         </Col>
         <Col span={12}>
-          <div className='base-style'>
+          <div>
             <Pie />
           </div>
         </Col>
         <Col span={12}>
-          <div className='base-style'>
+          <div>
             <Scatter />
           </div>
         </Col>
         <Col span={12}>
-          <div className='base-style'>
+          <div>
             <PictorialBar />
           </div>
         </Col>

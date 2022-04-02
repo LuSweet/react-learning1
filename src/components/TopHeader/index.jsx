@@ -5,6 +5,7 @@
  */
 import React from 'react'
 import { Layout, Space, Dropdown, Avatar, Menu } from 'antd'
+import { useNavigate } from 'react-router-dom'
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -14,8 +15,14 @@ import {
 const { Header } = Layout
 
 export default function TopHeader({ collapsed, setCollapsed }) {
+  const navigate = useNavigate()
+
   const toggle = () => {
     setCollapsed(!collapsed)
+  }
+  const quit = () => {
+    localStorage.removeItem('token')
+    navigate('/login')
   }
   const menu = () => {
     return (
@@ -23,6 +30,7 @@ export default function TopHeader({ collapsed, setCollapsed }) {
         <Menu.Item key='two'>超级管理员</Menu.Item>
         <Menu.Item key='personal'>个人资料</Menu.Item>
         <Menu.Item key='three'>我的</Menu.Item>
+        <Menu.Item key='four' onClick={quit}>退出登录</Menu.Item>
       </Menu>
     )
   }

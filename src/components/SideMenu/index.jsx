@@ -5,7 +5,7 @@
  */
 import React, { useEffect, useState } from 'react'
 import { Layout, Menu } from 'antd'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import {
   HomeOutlined,
   TeamOutlined,
@@ -25,9 +25,14 @@ import './index.css'
 const { Sider } = Layout
 const { SubMenu } = Menu
 
-export default function SideMenu({ collapsed }) {
+export default function SideMenu(props) {
+  const { collapsed } = props
   const [menu, setMenu] = useState([])
   const navigate = useNavigate()
+  const params = useLocation()
+  console.log('params', params.pathname)
+  const urlKey = [params.pathname]
+  const openKey = ['/' + params.pathname.split('/')[1]]
 
   useEffect(() => {
     axios.get('http://localhost:3000/menus?_embed=children').then(res => {
@@ -80,10 +85,19 @@ export default function SideMenu({ collapsed }) {
 
   return (
     <Sider className='sider' trigger={null} collapsible collapsed={collapsed}>
-      <div className='mylogo'>React学习系统</div>
-      <Menu theme='dark' mode='inline' defaultSelectedKeys={['/home']}>
-        {renderMenu(menu)}
-      </Menu>
+      <div style={{ display: 'flex', height: '100%', flexDirection: 'column' }}>
+        <div className='mylogo'>React学习系统</div>
+        <div style={{ flex: 1, overflow: 'auto' }}>
+          <Menu
+            theme='dark'
+            mode='inline'
+            selectedKeys={urlKey}
+            defaultOpenKeys={openKey}
+          >
+            {renderMenu(menu)}
+          </Menu>
+        </div>
+      </div>
     </Sider>
   )
 }

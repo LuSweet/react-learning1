@@ -10,7 +10,6 @@ import SideMenu from '../../components/SideMenu'
 import TopHeader from '../../components/TopHeader'
 import './Admin.css'
 import BottomFooter from '../../components/BottomFooter'
-import { Content } from 'antd/lib/layout/layout'
 
 // const { Content } = Layout
 
@@ -29,9 +28,12 @@ export default function Admin() {
       // }}
     >
       <SideMenu collapsed={collapsed} />
-      <Layout className='site-layout'>
+      <Layout
+        className='site-layout'
+        style={{ heigth: '100%', overflow: 'auto' }}
+      >
         <TopHeader collapsed={collapsed} setCollapsed={setCollapsed} />
-        <Content
+        <div
           className='site-layout-background'
           style={{
             margin: '24px 16px',
@@ -39,7 +41,7 @@ export default function Admin() {
           }}
         >
           <Outlet></Outlet>
-        </Content>
+        </div>
         <BottomFooter />
       </Layout>
     </Layout>
