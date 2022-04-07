@@ -1,9 +1,9 @@
-.base-style {
+.baseStyle {
   background-color: #fff;
   margin-bottom: 1rem;
   padding: 1.5rem;
   border-radius: 5px;
-  box-shadow: 0 2px 13px 0 rgba(121, 120, 120, 0.6);
+  box-shadow: 0 4px 13px 0 rgba(158, 158, 158, 0.6);
 }
 .ant-btn {
   margin-right: 8px;
@@ -17,4 +17,8 @@
 
 .ant-btn-group .ant-btn {
   margin: -1px;
+}
+
+.ant-btn.ant-btn-block {
+  margin: 5px 0;
 }

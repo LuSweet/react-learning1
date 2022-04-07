@@ -33,7 +33,23 @@
   padding-right: 1rem;
 }
 
-.bar-header {
+.base-style {
+  background-color: #fff;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 13px 0 rgba(158, 158, 158, 0.6);
+}
+
+.baseStyle {
+  background-color: #fff;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 13px 0 rgba(158, 158, 158, 0.6);
+}
+
+.header {
   display: flex;
   justify-content: space-between;
 }

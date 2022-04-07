@@ -3,24 +3,59 @@
  * @Date: 2022-03-05 10:52:33
  * @Description: file content
  */
-import { Table } from 'antd'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Button, Table, Tag, Space, Modal, Switch } from 'antd'
+import { ExclamationCircleOutlined } from '@ant-design/icons'
+import axios from 'axios'
 
 export default function RightList() {
-  const dataSource = [
-    {
-      key: '1',
-      name: '胡彦斌',
-      age: 32,
-      address: '西湖区湖底公园1号'
-    },
-    {
-      key: '2',
-      name: '胡彦祖',
-      age: 42,
-      address: '西湖区湖底公园1号'
+  const [dataSource, setDataSource] = useState([])
+  useEffect(() => {
+    axios.get('http://localhost:3000/menus?_embed=children').then(res => {
+      const list = res.data
+      list.forEach(item => {
+        if (item?.children?.length === 0) {
+          item.children = ''
+        }
+      })
+      setDataSource(list)
+    })
+  }, [])
+
+  const handleDelete = record => {
+    Modal.confirm({
+      title: '你确定要删除该项吗？',
+      icon: <ExclamationCircleOutlined />,
+      onOk() {
+        deleteMethod(record)
+      },
+      onCancel() { }
+    })
+  }
+
+  const deleteMethod = record => {
+    console.log(record)
+    if (record.grade === 1) {
+      setDataSource(dataSource.filter(item => item.id !== record.id))
+      axios.delete(`http://localhost:3000/menus/${record.id}`)
+    } else {
+      const list = dataSource.filter(item => item.id === record.menuId)
+      list[0].children = list[0].children.filter(data => data.id !== record.id)
+      setDataSource([...dataSource])
+      axios.delete(`http://localhost:3000/children/${record.id}`)
     }
-  ]
+  }
+
+  const handleSwitch = record => {
+    record.permission = record.permission === 1
+      ? 0
+      : 1
+    setDataSource([...dataSource])
+    axios.patch(`http://localhost:3000/menus/${record.id}`, {
+      permission: record.permission
+    })
+  }
+
   const columns = [
     {
       title: 'ID',
@@ -35,7 +70,27 @@ export default function RightList() {
     {
       title: '权限路径',
       dataIndex: 'key',
-      key: 'key'
+      key: 'key',
+      render: key => {
+        return <Tag color='green'>{key}</Tag>
+      }
+    },
+    {
+      title: '操作',
+      render: record => {
+        return (
+          <Space>
+            <Button onClick={() => handleDelete(record)}>删除</Button>
+            {record.permission && (
+              <Switch
+                // size='small'
+                checked={record.permission === 1}
+                onChange={() => handleSwitch(record)}
+              />
+            )}
+          </Space>
+        )
+      }
     }
   ]
   return <Table dataSource={dataSource} columns={columns} />
