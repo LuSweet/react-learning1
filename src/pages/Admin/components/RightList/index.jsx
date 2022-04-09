@@ -4,8 +4,9 @@
  * @Description: file content
  */
 import React, { useEffect, useState } from 'react'
-import { Button, Table, Tag, Space, Modal, Switch } from 'antd'
-import { ExclamationCircleOutlined } from '@ant-design/icons'
+import { Table, Tag, Space, Modal, Switch } from 'antd'
+import { ExclamationCircleOutlined, DeleteOutlined } from '@ant-design/icons'
+
 import axios from 'axios'
 
 export default function RightList() {
@@ -47,9 +48,7 @@ export default function RightList() {
   }
 
   const handleSwitch = record => {
-    record.permission = record.permission === 1
-      ? 0
-      : 1
+    record.permission = !record.permission
     setDataSource([...dataSource])
     axios.patch(`http://localhost:3000/menus/${record.id}`, {
       permission: record.permission
@@ -79,15 +78,12 @@ export default function RightList() {
       title: '操作',
       render: record => {
         return (
-          <Space>
-            <Button onClick={() => handleDelete(record)}>删除</Button>
-            {record.permission && (
-              <Switch
-                // size='small'
-                checked={record.permission === 1}
-                onChange={() => handleSwitch(record)}
-              />
-            )}
+          <Space size='large'>
+            <DeleteOutlined style={{ fontSize: '20px', color: 'red' }} onClick={() => handleDelete(record)} />
+            <Switch
+              checked={record.permission}
+              onChange={() => handleSwitch(record)}
+            />
           </Space>
         )
       }

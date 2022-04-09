@@ -3,7 +3,7 @@ import { Typography, Divider } from 'antd'
 
 const { Title, Paragraph, Link } = Typography
 
-export default function AboutMe () {
+export default function AboutMe() {
   return (
     // <div className='base-style'>
     //   <h3>关于作者</h3>
@@ -21,8 +21,8 @@ export default function AboutMe () {
       <Paragraph>这条路上的你并不是孤军奋战，有千千万万的猿在陪你前行</Paragraph>
       <Paragraph>微信：13054149836</Paragraph>
       <Paragraph>个人博客：
-        <Link href="http://101.132.237.76:6262/" target="_blank">
-          http://101.132.237.76:6262/
+        <Link href="http://www.lusweet.top" target="_blank">
+          http://www.lusweet.top
         </Link>
       </Paragraph>
       <Paragraph>Github地址：

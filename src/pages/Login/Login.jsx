@@ -6,19 +6,26 @@
 import React from 'react'
 import Particles from 'react-particles-js'
 import { useNavigate } from 'react-router-dom'
-import { Button, Input, Form } from 'antd'
+import { Button, Input, Form, notification } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import axios from 'axios'
 import './login.css'
-// import axios from 'axios'
 
 export default function Login() {
   const navigate = useNavigate()
 
   const login = (params) => {
-    console.log('mjk', params)
-    // axios.get()
-    localStorage.setItem('token', 'sdf')
-    navigate('/')
+    axios.get(`http://localhost:3000/users?username=${params.username}&password=${params.password}&roleState=true&_expand=role`).then(
+      res => {
+        console.log('res', res.data)
+        if (res.data.length === 0) {
+          notification.error({ message: '登陆失败！用户名或密码不匹配' })
+        } else {
+          localStorage.setItem('token', JSON.stringify(res.data[0]))
+          navigate('/home')
+        }
+      }
+    )
   }
 
   return (
@@ -29,35 +36,25 @@ export default function Login() {
       <div className='container'>
         <div className='loginTitle'>Raect学习系统</div>
         <Form
-          name="normal_login"
-          className="login-form"
-          initialValues={{ remember: true }}
           onFinish={login}
         >
           <Form.Item
             name="username"
-            rules={[{ required: true, message: 'Please input your Username!' }]}
+            placeholder="用户名"
+            rules={[{ required: true, message: '请输入用户名!' }]}
           >
-            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+            <Input prefix={<UserOutlined />} placeholder="Username" />
           </Form.Item>
           <Form.Item
             name="password"
-            rules={[{ required: true, message: 'Please input your Password!' }]}
+            rules={[{ required: true, message: '请输入密码!' }]}
           >
             <Input
-              prefix={<LockOutlined className="site-form-item-icon" />}
+              prefix={<LockOutlined />}
               type="password"
-              placeholder="Password"
+              placeholder="密码"
             />
           </Form.Item>
-          {/* <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-            <a className="login-form-forgot" href="">
-              Forgot password
-            </a>
-          </Form.Item> */}
           <Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button">
               登录

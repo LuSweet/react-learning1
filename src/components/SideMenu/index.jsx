@@ -34,9 +34,11 @@ export default function SideMenu(props) {
   const urlKey = [params.pathname]
   const openKey = ['/' + params.pathname.split('/')[1]]
 
+  const { role: { rights } } = JSON.parse(localStorage.getItem('token'))
   useEffect(() => {
     axios.get('http://localhost:3000/menus?_embed=children').then(res => {
       console.log('ming', res.data)
+      console.log('数组', JSON.stringify(res.data.map(item => item.key)))
       setMenu(res.data)
     })
   }, [])
@@ -62,16 +64,21 @@ export default function SideMenu(props) {
     navigate(key)
   }
 
+  const checked = (item) => {
+    return item.permission && rights.includes(item.key)
+  }
+
   const renderMenu = menudata => {
     return (menudata || []).map(item => {
-      if (item.children?.length > 0) {
+      console.log('item', checked(item))
+      if (item.children?.length > 0 && checked(item)) {
         return (
           <SubMenu key={item.key} icon={iconList[item.key]} title={item.title}>
             {renderMenu(item.children)}
           </SubMenu>
         )
       }
-      return (
+      return checked(item) && (
         <Menu.Item
           key={item.key}
           icon={iconList[item.key]}

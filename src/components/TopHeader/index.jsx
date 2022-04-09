@@ -16,7 +16,8 @@ const { Header } = Layout
 
 export default function TopHeader({ collapsed, setCollapsed }) {
   const navigate = useNavigate()
-
+  const { role: { roleName }, username } = JSON.parse(localStorage.getItem('token'))
+  console.log('lop', JSON.parse(localStorage.getItem('token')))
   const toggle = () => {
     setCollapsed(!collapsed)
   }
@@ -27,7 +28,7 @@ export default function TopHeader({ collapsed, setCollapsed }) {
   const menu = () => {
     return (
       <Menu>
-        <Menu.Item key='two'>超级管理员</Menu.Item>
+        <Menu.Item key='two'>{roleName}</Menu.Item>
         <Menu.Item key='personal'>个人资料</Menu.Item>
         <Menu.Item key='three'>我的</Menu.Item>
         <Menu.Item key='four' onClick={quit}>退出登录</Menu.Item>
@@ -42,7 +43,7 @@ export default function TopHeader({ collapsed, setCollapsed }) {
         : <MenuFoldOutlined className='trigger' onClick={toggle} />
       }
       <Space style={{ float: 'right' }} size={8}>
-        <span style={{ float: 'right' }}>欢迎Admin进入!</span>
+        <span style={{ float: 'right' }}>欢迎【{username}】进入!</span>
         <Dropdown overlay={menu}>
           <Avatar size='large' icon={<UserOutlined />} />
         </Dropdown>
