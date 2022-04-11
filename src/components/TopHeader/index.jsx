@@ -9,7 +9,11 @@ import { useNavigate } from 'react-router-dom'
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  UserOutlined
+  UserOutlined,
+  EditOutlined,
+  SettingOutlined,
+  // RobotOutlined,
+  LogoutOutlined
 } from '@ant-design/icons'
 
 const { Header } = Layout
@@ -28,10 +32,30 @@ export default function TopHeader({ collapsed, setCollapsed }) {
   const menu = () => {
     return (
       <Menu>
-        <Menu.Item key='two'>{roleName}</Menu.Item>
-        <Menu.Item key='personal'>个人资料</Menu.Item>
-        <Menu.Item key='three'>我的</Menu.Item>
-        <Menu.Item key='four' onClick={quit}>退出登录</Menu.Item>
+        <Menu.ItemGroup title={roleName}>
+          <Menu.Divider />
+          <Menu.Item key='personal'>
+            <Space>
+              <EditOutlined />
+              <span>个人资料</span>
+            </Space>
+          </Menu.Item>
+          <Menu.Item key='three'>
+            <Space>
+              <SettingOutlined />
+              <span>系统设置 </span>
+            </Space>
+          </Menu.Item>
+        </Menu.ItemGroup>
+        <Menu.Divider />
+        <Menu.Item key='four' onClick={quit} style={{ color: 'red' }}>
+          <Space>
+            <LogoutOutlined />
+            <span>
+              退出登录
+            </span>
+          </Space>
+        </Menu.Item>
       </Menu>
     )
   }

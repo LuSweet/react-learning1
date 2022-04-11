@@ -5,7 +5,7 @@
  */
 import React from 'react'
 import { Row, Col, Divider } from 'antd'
-import { FullscreenOutlined } from '@ant-design/icons'
+import { FullscreenOutlined, YoutubeOutlined, TwitterOutlined, FacebookOutlined, LinkedinOutlined } from '@ant-design/icons'
 import screenfull from 'screenfull'
 import Bar from './bar'
 import Line from './line'
@@ -24,34 +24,38 @@ export default function Home() {
     <div>
       <Row gutter={24} className='indexheader'>
         <Col span={6}>
-          <div className='baseStyle' style={{ backgroundColor: '#70ca63' }}>
+          <div className='baseStyle' style={{ backgroundColor: '#cd201f' }}>
+            <YoutubeOutlined style={{ fontSize: '60px' }} />
             <div>
               <span>999</span>
-              <div>微信</div>
+              <div>Youtube</div>
             </div>
           </div>
         </Col>
         <Col span={6}>
-          <div className='baseStyle' style={{ backgroundColor: '#967adc' }}>
+          <div className='baseStyle' style={{ backgroundColor: '#55acee' }}>
+            <TwitterOutlined style={{ fontSize: '60px' }} />
             <div>
               <span>366</span>
-              <div>QQ</div>
+              <div>Twitter</div>
             </div>
           </div>
         </Col>
         <Col span={6}>
-          <div className='baseStyle' style={{ backgroundColor: '#5d5dfd' }}>
+          <div className='baseStyle' style={{ backgroundColor: '#3b5999' }}>
+            <FacebookOutlined style={{ fontSize: '60px' }} />
             <div>
               <span>666</span>
-              <div>钉钉</div>
+              <div>Facebook</div>
             </div>
           </div>
         </Col>
         <Col span={6}>
-          <div className='baseStyle' style={{ backgroundColor: '#fb452d' }}>
+          <div className='baseStyle' style={{ backgroundColor: '#0b66c3' }}>
+            <LinkedinOutlined style={{ fontSize: '60px' }} />
             <div>
               <span>689</span>
-              <div>微博</div>
+              <div>LinkedIn</div>
             </div>
           </div>
         </Col>
