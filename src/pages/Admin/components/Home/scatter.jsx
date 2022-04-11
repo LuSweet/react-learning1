@@ -144,5 +144,5 @@ export default function Scatter() {
       myChart.resize()
     })
   }, [])
-  return <div id='scatter' style={{ height: 300, width: '80%' }}></div>
+  return <div id='scatter' style={{ height: 300, width: '100%' }}></div>
 }

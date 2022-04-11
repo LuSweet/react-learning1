@@ -20,6 +20,8 @@ module.exports = {
   rules: {
     'react/prop-types': 0,
     'space-before-function-paren': 0,
-    'multiline-ternary': ['error', 'always']
+    'no-unneeded-ternary': 'error',
+    'no-nested-ternary': 'error',
+    'multiline-ternary': ['error', 'always-multiline']
   }
 }

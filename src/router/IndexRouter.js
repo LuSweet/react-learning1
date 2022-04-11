@@ -15,6 +15,9 @@ import NewManage from '../pages/Admin/components/NewManage'
 import AuditManage from '../pages/Admin/components/AuditManage'
 import PublicManage from '../pages/Admin/components/PublicManage'
 import AboutMe from '../pages/Admin/components/AboutMe'
+import ButtonView from '../pages/Admin/components/Content/ButtonView'
+import IconView from '../pages/Admin/components/Content/IconView'
+import Editor from '../pages/Admin/components/Interest/Editor'
 
 export default function IndexRouter () {
   return (
@@ -33,6 +36,9 @@ export default function IndexRouter () {
           <Route path='/audit-manage' element={<AuditManage />}></Route>
           <Route path='/public-manage' element={<PublicManage />}></Route>
           <Route path='/about' element={<AboutMe />}></Route>
+          <Route path='/content/button' element={<ButtonView />}></Route>
+          <Route path='/content/icon' element={<IconView />}></Route>
+          <Route path='/interest/editor' element={<Editor />}></Route>
           <Route></Route>
         </Route>
       </Routes>

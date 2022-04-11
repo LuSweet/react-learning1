@@ -53,7 +53,7 @@ const Line = () => {
     })
   }, [])
 
-  return <div id='line' style={{ height: 300, width: '80%' }}></div>
+  return <div id='line' style={{ height: 300, width: '100%' }}></div>
 }
 
 export default Line

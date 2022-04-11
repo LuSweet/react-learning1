@@ -5,7 +5,7 @@
  */
 import React, { useEffect, useState } from 'react'
 import { Layout, Menu } from 'antd'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import {
   HomeOutlined,
   TeamOutlined,
@@ -25,13 +25,20 @@ import './index.css'
 const { Sider } = Layout
 const { SubMenu } = Menu
 
-export default function SideMenu({ collapsed }) {
+export default function SideMenu(props) {
+  const { collapsed } = props
   const [menu, setMenu] = useState([])
   const navigate = useNavigate()
+  const params = useLocation()
+  console.log('params', params.pathname)
+  const urlKey = [params.pathname]
+  const openKey = ['/' + params.pathname.split('/')[1]]
 
+  const { role: { rights } } = JSON.parse(localStorage.getItem('token'))
   useEffect(() => {
     axios.get('http://localhost:3000/menus?_embed=children').then(res => {
       console.log('ming', res.data)
+      console.log('数组', JSON.stringify(res.data.map(item => item.key)))
       setMenu(res.data)
     })
   }, [])
@@ -57,16 +64,21 @@ export default function SideMenu({ collapsed }) {
     navigate(key)
   }
 
+  const checked = (item) => {
+    return item.permission && rights.includes(item.key)
+  }
+
   const renderMenu = menudata => {
     return (menudata || []).map(item => {
-      if (item.children?.length > 0) {
+      console.log('item', checked(item))
+      if (item.children?.length > 0 && checked(item)) {
         return (
           <SubMenu key={item.key} icon={iconList[item.key]} title={item.title}>
             {renderMenu(item.children)}
           </SubMenu>
         )
       }
-      return (
+      return checked(item) && (
         <Menu.Item
           key={item.key}
           icon={iconList[item.key]}
@@ -80,10 +92,19 @@ export default function SideMenu({ collapsed }) {
 
   return (
     <Sider className='sider' trigger={null} collapsible collapsed={collapsed}>
-      <div className='mylogo'>React学习系统</div>
-      <Menu theme='dark' mode='inline' defaultSelectedKeys={['/home']}>
-        {renderMenu(menu)}
-      </Menu>
+      <div style={{ display: 'flex', height: '100%', flexDirection: 'column' }}>
+        <div className='mylogo'>React学习系统</div>
+        <div style={{ flex: 1, overflow: 'auto' }}>
+          <Menu
+            theme='dark'
+            mode='inline'
+            selectedKeys={urlKey}
+            defaultOpenKeys={openKey}
+          >
+            {renderMenu(menu)}
+          </Menu>
+        </div>
+      </div>
     </Sider>
   )
 }

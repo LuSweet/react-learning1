@@ -121,7 +121,7 @@ const PictorialBar = () => {
     })
   }, [])
 
-  return <div id='pictorialBar' style={{ height: 300, width: '80%' }}></div>
+  return <div id='pictorialBar' style={{ height: 300, width: '100%' }}></div>
 }
 
 export default PictorialBar

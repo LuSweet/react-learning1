@@ -111,5 +111,5 @@ export default function Bar() {
     })
   }, [])
 
-  return <div id='bar' style={{ height: 300, width: '80%' }}></div>
+  return <div id='bar' style={{ height: 300, width: '100%' }}></div>
 }

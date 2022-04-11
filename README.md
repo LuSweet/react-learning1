@@ -1,71 +1,78 @@
-# 这是第一个github项目-react-learning1
-### Getting Started with Create React App
+# 这是第一个 github 项目-react-learning1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### braft-editor
 
-### Available Scripts
+## React 后台管理系统
 
-In the project directory, you can run:
+> [项目预览地址](https://ltadpoles.github.io)
 
-### `npm start`
+基于 `React`和 `hooks` 生态系统搭建的后台管理系统模板
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+此项目为闲暇时间所做，主要是为了熟悉 `React` 项目的开发流程，打造一个快速开发后台管理系统的模板。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+由于每个管理项目可能会有不同的定制化需求，所以对于模板中的一些功能并没有做完善的封装，比如对 `axios` 的封装、前端路由权限的控制。当然，结构或者思路已经存在代码之中了,只需要添加具体的业务代码即可
 
-### `npm test`
+如果觉得不错或者对你有些许的帮助，欢迎 `star`，或者你有更好的实现方式、有趣的 `idea`，也欢迎留言交流
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+如果你想了解项目更为详细的信息，推荐阅读以下文章
 
-### `npm run build`
+- [如何打造 react 后台管理系统](https://github.com/ltadpoles/web-document/blob/master/React/%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0react%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.md)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+以下为项目基本信息 ↓
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 技术栈
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`React@17.0.2 + React-Router-Dom@6.2.2 + Antd@4.18.9 + Axios@0.26.1`
 
-### `npm run eject`
+> `Create React App` 脚手架工具快速搭建项目结构
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> `react-loadable@5.5.0` 路由懒加载
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> `JSON-server` 搭建本地的数据接口
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- > `react-redux@7.1.1` 配合 `Redux` 更舒心 -->
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> `animate.css@3.7.2` 页面动画展示
 
-## Learn More
+> `braft-editor@2.3.8` 富文本插件
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> `echarts@5.3.1` 数据可视化
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> `nprogress@0.2.0` 顶部加载条
 
-### Code Splitting
+> `screenfull@5.0.0` 全屏插件
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> `react-particles-js@2.4.0`: 登录界面首页,
 
-### Analyzing the Bundle Size
+> `eslint@8.3.0`, 代码检查
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+> `prettier@1.18.2` 代码风格美化
 
-### Making a Progressive Web App
+### 基本功能
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [x] Json server 搭建本地的数据接口
+- [x] 富文本编辑器 braft-editor
+- [x] 常用 UI 展示
+- [x] echarts 全屏展示
+- [x] 登陆/注销功能
+- [x] axios 应用
+- [x] 简单权限管理
 
-### Advanced Configuration
+### 项目结构
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 使用方法
 
-### Deployment
+```npm
+git clone https://github.com/LuSweet/react-learning1
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+cd react-admin
 
-### `npm run build` fails to minify
+// 安装依赖
+yarn
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+// 启动
+yarn start
+
+// 启动Json server的db.json文件
+json-server --watch db.json
+```
