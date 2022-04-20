@@ -18,6 +18,7 @@ import AboutMe from '../pages/Admin/components/AboutMe'
 import ButtonView from '../pages/Admin/components/Content/ButtonView'
 import IconView from '../pages/Admin/components/Content/IconView'
 import Editor from '../pages/Admin/components/Interest/Editor'
+import Animate from '../pages/Admin/components/Interest/Animate'
 
 export default function IndexRouter () {
   return (
@@ -39,6 +40,7 @@ export default function IndexRouter () {
           <Route path='/content/button' element={<ButtonView />}></Route>
           <Route path='/content/icon' element={<IconView />}></Route>
           <Route path='/interest/editor' element={<Editor />}></Route>
+          <Route path='/interest/animate' element={<Animate />}></Route>
           <Route></Route>
         </Route>
       </Routes>
