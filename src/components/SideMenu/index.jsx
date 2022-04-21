@@ -17,7 +17,8 @@ import {
   RobotOutlined,
   VideoCameraOutlined,
   LaptopOutlined,
-  UploadOutlined
+  UploadOutlined,
+  GithubOutlined
 } from '@ant-design/icons'
 import axios from 'axios'
 import './index.css'
@@ -92,8 +93,12 @@ export default function SideMenu(props) {
 
   return (
     <Sider className='sider' trigger={null} collapsible collapsed={collapsed}>
-      <div style={{ display: 'flex', height: '100%', flexDirection: 'column' }}>
-        <div className='mylogo'>React学习系统</div>
+      <div style={{ display: 'flex', height: '100%', justifyContent: 'space-around', flexDirection: 'column', fontSize: '24px' }}>
+        <div className='mylogo'>
+          <a rel='noopener noreferrer' href='https://github.com/ltadpoles' target='_blank'>
+            <GithubOutlined style={{ fontSize: '24px', color: '#fff' }} />
+          </a>
+          React学习</div>
         <div style={{ flex: 1, overflow: 'auto' }}>
           <Menu
             theme='dark'

@@ -19,13 +19,6 @@ export default function Admin() {
   return (
     <Layout
       hasSider
-      // style={{
-      //   height: '100vh',
-      //   width: '100%',
-      //   overflow: 'auto',
-      //   position: 'fixed',
-      //   bottom: 0
-      // }}
     >
       <SideMenu collapsed={collapsed} />
       <Layout

@@ -57,7 +57,6 @@
 ```npm
 git clone https://github.com/LuSweet/react-learning1
 
-cd react-admin
 
 // 安装依赖
 yarn
