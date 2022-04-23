@@ -20,7 +20,7 @@ import IconView from '../pages/Admin/components/Content/IconView'
 import Editor from '../pages/Admin/components/Interest/Editor'
 import Animate from '../pages/Admin/components/Interest/Animate'
 
-export default function IndexRouter () {
+export default function IndexRouter() {
   return (
     <HashRouter>
       <Routes>

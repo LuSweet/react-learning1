@@ -18,7 +18,7 @@ export default function Admin() {
 
   return (
     <Layout
-      hasSider
+      // hasSider
     >
       <SideMenu collapsed={collapsed} />
       <Layout

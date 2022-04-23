@@ -1,7 +1,7 @@
 .baseStyle {
   background-color: #fff;
   margin-bottom: 1rem;
-  padding: 1.5rem;
+  padding: 24px;
   border-radius: 5px;
   box-shadow: 0 4px 13px 0 rgba(158, 158, 158, 0.6);
 }

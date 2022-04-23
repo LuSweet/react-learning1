@@ -93,12 +93,13 @@ export default function SideMenu(props) {
 
   return (
     <Sider className='sider' trigger={null} collapsible collapsed={collapsed}>
-      <div style={{ display: 'flex', height: '100%', justifyContent: 'space-around', flexDirection: 'column', fontSize: '24px' }}>
+      <div style={{ display: 'flex', height: '100%', justifyContent: 'space-between', flexDirection: 'column', fontSize: '24px' }}>
         <div className='mylogo'>
-          <a rel='noopener noreferrer' href='https://github.com/ltadpoles' target='_blank'>
-            <GithubOutlined style={{ fontSize: '24px', color: '#fff' }} />
+          <a rel='noopener noreferrer' href='https://github.com/LuSweet' target='_blank'>
+            <GithubOutlined style={{ fontSize: '26px', color: '#fff', padding: '0 10px' }} />
           </a>
-          React学习</div>
+          <span>React学习</span>
+          </div>
         <div style={{ flex: 1, overflow: 'auto' }}>
           <Menu
             theme='dark'

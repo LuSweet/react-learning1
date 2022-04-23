@@ -67,7 +67,9 @@ export default function TopHeader({ collapsed, setCollapsed }) {
         : <MenuFoldOutlined className='trigger' onClick={toggle} />
       }
       <Space style={{ float: 'right' }} size={8}>
-        <span style={{ float: 'right' }}>欢迎【{username}】进入!</span>
+        <span style={{ float: 'right' }}>欢迎【
+        <span style={{ color: 'rgb(85, 172, 238)' }}>{username}</span>
+        】进入!</span>
         <Dropdown overlay={menu}>
           <Avatar size='large' icon={<UserOutlined />} />
         </Dropdown>
